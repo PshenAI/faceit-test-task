@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class BaseCuisine implements Cuisine {
-    private final Map<String, Food> dishList = new HashMap<>();
+    protected final Map<String, Food> dishList = new HashMap<>();
 
     public Lunch prepareLunch(String lunchName) {
         return (Lunch)dishList.get(lunchName);

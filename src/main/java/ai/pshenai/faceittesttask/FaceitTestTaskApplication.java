@@ -6,10 +6,7 @@ import ai.pshenai.faceittesttask.service.food.Lunch;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-
-import java.util.Map;
 
 @SpringBootApplication
 public class FaceitTestTaskApplication {
@@ -20,7 +17,7 @@ public class FaceitTestTaskApplication {
 
     @Bean
     public CommandLineRunner onStart(PolishCuisine polishCuisine, ItalianCuisine italianCuisine, MexicanCuisine mexicanCuisine,
-                                     UniversalCuisine universalCuisine, final CuisineFactory cuisineFactory) {
+                                     UniversalCuisine universalCuisine) {
         return strings ->{
             Lunch italianLunch = Lunch.builder()
                     .name("Carbonara")
