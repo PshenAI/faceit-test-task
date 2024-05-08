@@ -1,6 +1,5 @@
 package ai.pshenai.faceittesttask.service.cuisine;
 
-import ai.pshenai.faceittesttask.service.food.Food;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -16,12 +15,13 @@ public class CuisineFactory {
         this.cuisines = cuisines;
     }
 
-    public Cuisine getFoodCuisine(Food food) {
-        return switch(food.getCuisineType()){
-            case ALL -> cuisines.get("universalCuisine");
-            case ITALIAN -> cuisines.get("polishCuisine");
-            case MEXICAN -> cuisines.get("mexicanCuisine");
-            case POLISH -> cuisines.get("italianCuisine");
+    public Cuisine getConcreteCuisine(String cuisineName) {
+        return switch(cuisineName){
+            case "ALL" -> cuisines.get("universalCuisine");
+            case "POLISH" -> cuisines.get("polishCuisine");
+            case "MEXICAN" -> cuisines.get("mexicanCuisine");
+            case "ITALIAN" -> cuisines.get("italianCuisine");
+            default -> throw new IllegalStateException("Illegal cuisine name: " + cuisineName);
         };
     }
 
